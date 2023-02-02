@@ -38,11 +38,11 @@ Promise.all(promises).then(() => {
 
 function zipComponentObj(zipObj: JSZip, { name, code }: ComponentObj) {
 
-  const componentFileName = name.toLowerCase().replaceAll(' ', '-')
+  const componentSlugName = name.toLowerCase().replaceAll(' ', '-')
   const componentFcName = name.replaceAll(' ', '') + 'Demo'
   const camelName = name.replaceAll(' ', '')
 
-  const folder = zipObj.folder(componentFileName)
+  const folder = zipObj.folder(componentSlugName)
   const inedxFileContent = code.split(/\n/)[1].replace(/^import/, 'export').replace(/(?<=\sas\s)\w+(?=\sfrom)/, 'default')
   
   requiredDependencies.push(inedxFileContent.match(/(?<=').*(?=')/)![0])
@@ -62,14 +62,14 @@ function zipComponentObj(zipObj: JSZip, { name, code }: ComponentObj) {
     mdxTemplate
       .replaceAll('--component_fc_name--', componentFcName)
       .replaceAll('--story_name--', camelName)
-      .replaceAll('--component_file_name--', componentFileName)
+      .replaceAll('--component_file_name--', componentSlugName)
       .replaceAll('--component_name--', name)
-      .replaceAll('--component_doc_url--', `https://www.radix-ui.com/docs/primitives/components/${componentFileName}`)
+      .replaceAll('--component_doc_url--', `https://www.radix-ui.com/docs/primitives/components/${componentSlugName}`)
       .replaceAll('--example_code--', cleanCode)
       .trim()
   
   folder?.file('index.ts', inedxFileContent)
-  folder?.file(componentFileName + '.tsx', cleanCode)
-  folder?.file(componentFileName + '.stories.mdx', mdxContent)
+  folder?.file(componentSlugName + '.example.tsx', cleanCode)
+  folder?.file(componentSlugName + '.stories.mdx', mdxContent)
 }
 

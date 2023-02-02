@@ -1,5 +1,5 @@
 export const mdxTemplate = `
-import { --component_fc_name-- } from "./--component_file_name--";
+import { --component_fc_name-- } from "./--component_file_name--.example";
 import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
 <Meta title="components/--story_name--" component={--component_fc_name--} />
