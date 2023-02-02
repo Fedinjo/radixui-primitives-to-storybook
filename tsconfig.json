@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "strict": true,
+    "module": "commonjs",
+    "target": "ES2021",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "rootDir": "src",
+    "outDir": "dist/js",
+    "noEmitOnError": true,
+    "typeRoots": [ "node_modules/@types" ]
+  }
+}

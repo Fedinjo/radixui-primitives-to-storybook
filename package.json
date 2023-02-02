@@ -1,0 +1,35 @@
+{
+  "name": "radixui-to-storybook-converter",
+  "version": "1.0.0",
+  "description": "A program that let you convert all the RadixUI primitives into organized storybook stories. Since the purpose is to have the components styled using tailwindcss, the components don't include styles shown in the radix-ui documentation.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
+  },
+  "keywords": [
+    "web",
+    "scraping",
+    "radix-ui"
+  ],
+  "author": "\"Federico Peloso\" <federico.peloso03@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/file-saver": "^2.0.5",
+    "@types/node": "^18.11.18",
+    "@webpack-cli/generators": "^3.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "prettier": "^2.8.3",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "title-case": "^3.0.3"
+  }
+}
